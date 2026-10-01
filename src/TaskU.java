@@ -2,22 +2,15 @@ import java.util.Scanner;
 
 public class TaskU {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int m = in.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
 
-        int rem1 = n % m;
-        int rem2 = m % n;
+        // Если одно число делится на другое, то хотя бы один из остатков равен 0,
+        // следовательно, их произведение будет равно 0, и программа выведет 1.
+        // Если ни одно не делится, произведение будет больше 0, и программа выведет число, отличное от 1.
+        int result = 1 + (n % m) * (m % n);
 
-        int prod = rem1 * rem2;
-
-
-        int result = 1 - (prod + 1) / (prod + 1) + 1 / (prod + 1);
-
-
-        int isDivisible = 1 - (prod / (prod + 1) * 2 + (prod > 0 ? 0 : 0));
-        int finalAns = 1 - ((prod + 1) / (prod + 1) - 1 / (prod + 1));
-
-        System.out.println(finalAns);
+        System.out.println(result);
     }
 }
